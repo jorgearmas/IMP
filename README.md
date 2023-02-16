@@ -1,4 +1,4 @@
-# IMP (Programa de Gestión de Facturas) 📃
+# IMP (Invoice Management Program) 📃
 ## Under Construction 🚧
 IMP is a lightweight program for managing customers and invoices. The functionalities of the first version are:
 
