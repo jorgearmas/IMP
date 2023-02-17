@@ -9,6 +9,11 @@ cx_name = ""
 cx_adress = ""
 cx_phone = ""
 
+def write_in_file():
+    f = open("prod.txt", "a")
+    f.write("Now the file has more content!")
+    f.close()
+
 #add customer
 def add_cx():
     print("-"*42)
@@ -33,6 +38,7 @@ def add_cx():
         production_dict[nif] = cx_data_dict
         session_add_cx = int(input("Le gustaria agregar otro cliente? "))
         if session_add_cx != 1:
+            write_in_file()
             menu()
 
 def menu():
