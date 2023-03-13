@@ -1,4 +1,6 @@
 
+import os
+
 #dictionaries
 production_dict = {}
 cx_data_dict = {}
@@ -9,9 +11,9 @@ cx_name = ""
 cx_adress = ""
 cx_phone = ""
 
-def write_in_file():
+def write_in_file(new_record):
     f = open("prod.txt", "a")
-    f.write("Now the file has more content!")
+    f.write(new_record)
     f.close()
 
 #add customer
@@ -36,10 +38,15 @@ def add_cx():
         cx_phone = input("Ingrese numero de telefono del cliente: ")
         cx_data_dict['phone'] = cx_phone
         production_dict[nif] = cx_data_dict
+        
+        write_in_file(str(production_dict)+" | ")
         session_add_cx = int(input("Le gustaria agregar otro cliente? "))
         if session_add_cx != 1:
-            write_in_file()
+            os.system('CLS')
             menu()
+
+def del_cx():
+    pass
 
 def menu():
     menu_option = 0
@@ -56,8 +63,11 @@ def menu():
     menu_option = int(input("Seleccione una opcion: "))
     print("-"*42)
     if menu_option == 1:
+        os.system('CLS')
         add_cx()
-        print(production_dict)
+    elif menu_option == 2:
+        del_cx()
+
 
 #entry point
 if __name__ == "__main__":
