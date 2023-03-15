@@ -1,1 +1,1 @@
-1011: {name: Jorge Armas, adress: 4ta calle, phone: 50192597} | 1012: {name: Jose Garcia, adress: 5ave 8-79, phone: 55103816} | 
+{'111': {'name': 'Jorge Armas', 'address': '4a calle', 'phone': '50192597'}}{'111': {'name': 'Jorge Armas', 'address': '4a calle', 'phone': '50192597'}, '222': {'name': 'Andrea Cruz', 'address': '5a ave', 'phone': '42828238'}}

@@ -1,5 +1,6 @@
 
 import os
+import json
 
 #dictionaries
 production_dict = {}
@@ -19,10 +20,13 @@ def write_in_file(new_record):
 
 #read_file
 def read_file():
+    global production_dict
     with open('prod.txt') as f:
         lines = f.readlines()
-        print(lines)
+        production_dict = lines
         f.close()
+        os.system('CLS')
+        menu()
 
 #add customer
 def add_cx():
@@ -31,14 +35,15 @@ def add_cx():
     print("-"*42)
     session_add_cx = 1
     global production_dict
+    global cx_data_dict
     global nif
     global cx_name
     global cx_adress
     global cx_phone
 
     while session_add_cx == 1:
-        pass
-        nif = int(input("\nIngrese el NIF / NIT del cliente: "))
+        cx_data_dict = {}
+        nif = (input("\nIngrese el NIF / NIT del cliente: "))
         cx_name = input("Ingrese ingrese un nombre y un apellido: ")
         cx_data_dict['name'] = cx_name
         cx_adress = input("Ingrese ingrese direccion del cliente/empresa: ")
@@ -47,7 +52,7 @@ def add_cx():
         cx_data_dict['phone'] = cx_phone
         production_dict[nif] = cx_data_dict
         
-        write_in_file(str(nif)+": "+"{"+"name: "+cx_name+", "+"adress: "+cx_adress+", "+"phone: "+cx_phone+"}"+" | ")
+        write_in_file(str(production_dict))
         session_add_cx = int(input("Le gustaria agregar otro cliente? "))
         if session_add_cx != 1:
             os.system('CLS')
@@ -61,6 +66,7 @@ def del_cx():
     read_file()
 
 def menu():
+    print(production_dict)
     menu_option = 0
     print("-"*42)
     print("Invoice Management Program - (IMP)")
